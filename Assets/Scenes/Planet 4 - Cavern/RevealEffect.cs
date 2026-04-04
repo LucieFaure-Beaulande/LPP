@@ -10,19 +10,12 @@ public class RevealEffect : MonoBehaviour
     private Material _material;
     private float _elapsedTime = 0f;
     private bool _isRevealing = false;
-    private Color _baseColor;
 
     private void Start()
     {
         _material = objectRenderer.material;
 
-        // Transparent
-        _material.SetFloat("_Surface", 1f);
-        _material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
-
-        _baseColor = _material.GetColor("_BaseColor");
-        _baseColor.a = 0f;
-        _material.SetColor("_BaseColor", _baseColor);
+        _material.SetFloat("_Cutoff", 1f);
 
         Invoke(nameof(StartReveal), delayBeforeReveal);
     }
@@ -41,11 +34,11 @@ public class RevealEffect : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         float progress = Mathf.Clamp01(_elapsedTime / revealDuration);
 
-        _baseColor.a = progress;
-        _material.SetColor("_BaseColor", _baseColor);
+        _material.SetFloat("_Cutoff", 1f - progress);
 
         if (progress >= 1f)
         {
+            _material.SetFloat("_Cutoff", 0f);
             _isRevealing = false;
             smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
