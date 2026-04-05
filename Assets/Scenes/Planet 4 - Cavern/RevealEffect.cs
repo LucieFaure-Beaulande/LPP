@@ -3,26 +3,36 @@ using UnityEngine;
 public class RevealEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem smokeParticles;
-    [SerializeField] private Renderer objectRenderer;
+    [SerializeField] private Renderer genieRenderer;
+    [SerializeField] private Renderer lampRenderer;
     [SerializeField] private float revealDuration = 3f;
-    [SerializeField] private float delayBeforeReveal = 1f;
 
-    private Material _material;
+    private Material _genieMaterial;
+    private Material _lampMaterial;
     private float _elapsedTime = 0f;
     private bool _isRevealing = false;
 
     private void Start()
     {
-        _material = objectRenderer.material;
+        if (genieRenderer != null)
+            _genieMaterial = genieRenderer.material;
 
-        _material.SetFloat("_Cutoff", 1f);
+        if (lampRenderer != null)
+            _lampMaterial = lampRenderer.material;
 
-        Invoke(nameof(StartReveal), delayBeforeReveal);
+        if (_genieMaterial != null)
+            _genieMaterial.SetFloat("_Cutoff", 1f);
+
+        if (_lampMaterial != null)
+            _lampMaterial.SetFloat("_Cutoff", 0f);
+
     }
 
     private void StartReveal()
     {
-        smokeParticles.Play();
+        if (smokeParticles != null)
+            smokeParticles.Play();
+
         _isRevealing = true;
         _elapsedTime = 0f;
     }
@@ -34,13 +44,35 @@ public class RevealEffect : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         float progress = Mathf.Clamp01(_elapsedTime / revealDuration);
 
-        _material.SetFloat("_Cutoff", 1f - progress);
+        if (_genieMaterial != null)
+            _genieMaterial.SetFloat("_Cutoff", 1f - progress);
+
+        if (_lampMaterial != null)
+            _lampMaterial.SetFloat("_Cutoff", progress);
 
         if (progress >= 1f)
         {
-            _material.SetFloat("_Cutoff", 0f);
+            if (_genieMaterial != null)
+                _genieMaterial.SetFloat("_Cutoff", 0f);
+
+            if (_lampMaterial != null)
+                _lampMaterial.SetFloat("_Cutoff", 1f);
+
             _isRevealing = false;
-            smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            if (smokeParticles != null)
+                smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
         }
+    }
+
+    public void StartRevealExternally()
+    {
+        if (_isRevealing) return;
+
+        if (smokeParticles != null)
+            smokeParticles.Play();
+
+        _isRevealing = true;
+        _elapsedTime = 0f;
     }
 }
