@@ -543,7 +543,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1515753383}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadPlanet2Menu
+        m_MethodName: LoadPlanet1Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
