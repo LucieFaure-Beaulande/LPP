@@ -1246,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: -8601581723913690838, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 595363829295284587, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 917346512468147161, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b82373455e2376948880050c3fd40997, type: 2}
+      objectReference: {fileID: 2100000, guid: dadbdb8238cdcb94b8393541822a1ce6, type: 2}
     - target: {fileID: 919132149155446097, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: m_Name
       value: Jackson Storm
@@ -6418,6 +6418,7 @@ GameObject:
   - component: {fileID: 464370337}
   - component: {fileID: 464370338}
   - component: {fileID: 464370339}
+  - component: {fileID: 464370341}
   - component: {fileID: 464370340}
   m_Layer: 0
   m_Name: Camera
@@ -6619,6 +6620,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessLayer
+--- !u!114 &464370341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 464370332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessVolume
 --- !u!1 &477138177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7314,11 +7327,11 @@ PrefabInstance:
     - target: {fileID: -6652725513331149018, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 57895f3b1a2c41a47855b943858758b7, type: 2}
+      objectReference: {fileID: 2100000, guid: 403765d6f3c2b69458ee09b4023cc85d, type: 2}
     - target: {fileID: -803405088876591012, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 919132149155446097, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: m_Name
       value: Rookie Lightning McQueen
@@ -10832,7 +10845,7 @@ PrefabInstance:
     - target: {fileID: -6558475112869005483, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: m_Name
       value: Danny swervez
@@ -10840,7 +10853,7 @@ PrefabInstance:
     - target: {fileID: 5671048900007043535, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3bc9f48c2baecee4d88b6cf2f1c3538b, type: 2}
+      objectReference: {fileID: 2100000, guid: 08807284d147c524e8aa07e75ce1f088, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
