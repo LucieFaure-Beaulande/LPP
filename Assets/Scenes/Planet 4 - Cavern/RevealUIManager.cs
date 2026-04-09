@@ -17,6 +17,9 @@ public class RevealUIManager : MonoBehaviour
             buttonObject.SetActive(true);
 
         if (firstPersonController != null)
-            firstPersonController.EnablePlayerControl();
+            firstPersonController.EnableMovementOnly();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

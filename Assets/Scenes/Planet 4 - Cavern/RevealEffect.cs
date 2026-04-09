@@ -58,9 +58,6 @@ public class RevealEffect : MonoBehaviour
             if (smokeParticles != null)
                 smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
-            if (firstPersonController != null)
-                firstPersonController.EnablePlayerControl();
-
             onRevealFinished?.Invoke();
         }
     }
