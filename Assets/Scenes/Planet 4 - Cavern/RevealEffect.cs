@@ -1,37 +1,35 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RevealEffect : MonoBehaviour
 {
     [SerializeField] private ParticleSystem smokeParticles;
-    [SerializeField] private Renderer objectRenderer;
+    [SerializeField] private Renderer genieRenderer;
+    [SerializeField] private Renderer lampRenderer;
     [SerializeField] private float revealDuration = 3f;
-    [SerializeField] private float delayBeforeReveal = 1f;
+    [SerializeField] private FirstPersonController firstPersonController;
 
-    private Material _material;
+    [Header("Event")]
+    public UnityEvent onRevealFinished;
+
+    private Material _genieMaterial;
+    private Material _lampMaterial;
     private float _elapsedTime = 0f;
     private bool _isRevealing = false;
-    private Color _baseColor;
 
     private void Start()
     {
-        _material = objectRenderer.material;
+        if (genieRenderer != null)
+            _genieMaterial = genieRenderer.material;
 
-        // Transparent
-        _material.SetFloat("_Surface", 1f);
-        _material.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        if (lampRenderer != null)
+            _lampMaterial = lampRenderer.material;
 
-        _baseColor = _material.GetColor("_BaseColor");
-        _baseColor.a = 0f;
-        _material.SetColor("_BaseColor", _baseColor);
+        if (_genieMaterial != null)
+            _genieMaterial.SetFloat("_Cutoff", 1f);
 
-        Invoke(nameof(StartReveal), delayBeforeReveal);
-    }
-
-    private void StartReveal()
-    {
-        smokeParticles.Play();
-        _isRevealing = true;
-        _elapsedTime = 0f;
+        if (_lampMaterial != null)
+            _lampMaterial.SetFloat("_Cutoff", 0f);
     }
 
     private void Update()
@@ -41,13 +39,40 @@ public class RevealEffect : MonoBehaviour
         _elapsedTime += Time.deltaTime;
         float progress = Mathf.Clamp01(_elapsedTime / revealDuration);
 
-        _baseColor.a = progress;
-        _material.SetColor("_BaseColor", _baseColor);
+        if (_genieMaterial != null)
+            _genieMaterial.SetFloat("_Cutoff", 1f - progress);
+
+        if (_lampMaterial != null)
+            _lampMaterial.SetFloat("_Cutoff", progress);
 
         if (progress >= 1f)
         {
+            if (_genieMaterial != null)
+                _genieMaterial.SetFloat("_Cutoff", 0f);
+
+            if (_lampMaterial != null)
+                _lampMaterial.SetFloat("_Cutoff", 1f);
+
             _isRevealing = false;
-            smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            if (smokeParticles != null)
+                smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            if (firstPersonController != null)
+                firstPersonController.EnablePlayerControl();
+
+            onRevealFinished?.Invoke();
         }
+    }
+
+    public void StartRevealExternally()
+    {
+        if (_isRevealing) return;
+
+        _elapsedTime = 0f;
+        _isRevealing = true;
+
+        if (smokeParticles != null)
+            smokeParticles.Play();
     }
 }
