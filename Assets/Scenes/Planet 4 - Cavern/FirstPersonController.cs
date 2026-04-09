@@ -56,6 +56,12 @@ public class FirstPersonController : MonoBehaviour
         Cursor.visible = true;
     }
 
+    public void EnableMovementOnly()
+    {
+        _canMove = true;
+        _canLook = false;
+    }
+
     private void HandleMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
@@ -77,5 +83,14 @@ public class FirstPersonController : MonoBehaviour
         _verticalRotation -= mouseY;
         _verticalRotation = Mathf.Clamp(_verticalRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
+    }
+
+    public void SetLookRotation(Quaternion worldRotation)
+    {
+        transform.rotation = Quaternion.Euler(0f, worldRotation.eulerAngles.y, 0f);
+        _verticalRotation = 0f;
+
+        if (cameraTransform != null)
+            cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
     }
 }

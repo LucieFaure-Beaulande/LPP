@@ -7,6 +7,7 @@ public class RevealEffect : MonoBehaviour
     [SerializeField] private Renderer genieRenderer;
     [SerializeField] private Renderer lampRenderer;
     [SerializeField] private float revealDuration = 3f;
+    [SerializeField] private FirstPersonController firstPersonController;
 
     [Header("Event")]
     public UnityEvent onRevealFinished;
@@ -57,6 +58,9 @@ public class RevealEffect : MonoBehaviour
             if (smokeParticles != null)
                 smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
+            if (firstPersonController != null)
+                firstPersonController.EnablePlayerControl();
+
             onRevealFinished?.Invoke();
         }
     }
@@ -65,10 +69,10 @@ public class RevealEffect : MonoBehaviour
     {
         if (_isRevealing) return;
 
+        _elapsedTime = 0f;
+        _isRevealing = true;
+
         if (smokeParticles != null)
             smokeParticles.Play();
-
-        _isRevealing = true;
-        _elapsedTime = 0f;
     }
 }
