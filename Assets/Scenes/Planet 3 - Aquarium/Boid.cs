@@ -6,6 +6,8 @@ public class Boid : MonoBehaviour
     public Vector3 velocity;
     private Vector3 acceleration;
 
+    public Animator animator;
+
     // These are set by the Manager every frame
     [HideInInspector] public float minSpeed, maxSpeed, visualRange, separationDistance;
     public float rotationSpeed = 5f;
@@ -43,21 +45,37 @@ public class Boid : MonoBehaviour
             alignment /= neighborCount;
             cohesion = (cohesion / neighborCount) - transform.position;
 
-            // Use raw vectors for internal logic, then clamp the final acceleration
             acceleration += alignment * 1.0f;
             acceleration += cohesion * 1.0f;
-            acceleration += separation * 2.5f; // Keep separation slightly higher
+            acceleration += separation * 2.5f;
         }
 
-        // Reduce the boundary multiplier so it doesn't override everything
-        acceleration += BoundPosition(box) * 2.0f;
+        // 1. CLAMP THE FLOCKING FORCES
+        // This stops them from instantly snapping 180 degrees. It forces an arc.
+        acceleration = Vector3.ClampMagnitude(acceleration, maxSpeed);
+
+        // 2. ADD THE BOUNDARY SPRING
+        // We add this AFTER clamping so the walls always overpower the flocking.
+        acceleration += BoundPosition(box);
 
         velocity += acceleration * Time.deltaTime;
 
         // Clamp speed
         float speed = velocity.magnitude;
-        if (speed > maxSpeed) velocity = velocity.normalized * maxSpeed;
-        if (speed < minSpeed) velocity = velocity.normalized * minSpeed;
+        // Failsafe to prevent zero-vector locking
+        if (speed < 0.01f) velocity = transform.forward * minSpeed;
+        else if (speed > maxSpeed) velocity = (velocity / speed) * maxSpeed;
+        else if (speed < minSpeed) velocity = (velocity / speed) * minSpeed;
+
+        if (animator != null)
+        {
+            // Option A: Send the speed to the Animator parameter for transitions/blend trees
+            animator.SetFloat("Speed", speed);
+
+            // Option B: Scale the playback speed so they flap/swim faster when moving fast
+            // This maps their current speed relative to their max speed (e.g., 0.5 to 1.0)
+            animator.speed = Mathf.Clamp(speed / maxSpeed, 0.5f, 1.5f);
+        }
 
         transform.position += velocity * Time.deltaTime;
 
@@ -71,27 +89,46 @@ public class Boid : MonoBehaviour
 
     Vector3 BoundPosition(Boundary box)
     {
-        Vector3 steer = Vector3.zero;
-        float margin = 2.0f; // A smaller margin allows them to use more of the tank
+        Vector3 force = Vector3.zero;
+
+        // INCREASE THE MARGIN! 
+        // A smooth turn requires physical space. If maxSpeed is 5, they need at least 6 units to curve.
+        float margin = 6.0f;
+
+        // PROGRESSIVE SPRING LOGIC
+        // Instead of a flat toggle, the force scales up the closer they get to the absolute edge.
 
         // X-Axis
         if (transform.position.x < box.min.x + margin)
-            steer.x = (box.min.x + margin) - transform.position.x;
+        {
+            force.x = (box.min.x + margin) - transform.position.x;
+        }
         else if (transform.position.x > box.max.x - margin)
-            steer.x = (box.max.x - margin) - transform.position.x;
+        {
+            force.x = (box.max.x - margin) - transform.position.x;
+        }
 
-        // Y-Axis (Fixed steer.y)
+        // Y-Axis
         if (transform.position.y < box.min.y + margin)
-            steer.y = (box.min.y + margin) - transform.position.y;
+        {
+            force.y = (box.min.y + margin) - transform.position.y;
+        }
         else if (transform.position.y > box.max.y - margin)
-            steer.y = (box.max.y - margin) - transform.position.y;
+        {
+            force.y = (box.max.y - margin) - transform.position.y;
+        }
 
-        // Z-Axis (Fixed steer.z)
+        // Z-Axis
         if (transform.position.z < box.min.z + margin)
-            steer.z = (box.min.z + margin) - transform.position.z;
+        {
+            force.z = (box.min.z + margin) - transform.position.z;
+        }
         else if (transform.position.z > box.max.z - margin)
-            steer.z = (box.max.z - margin) - transform.position.z;
+        {
+            force.z = (box.max.z - margin) - transform.position.z;
+        }
 
-        return steer;
+        // Multiply by a tuning factor to make the spring firm enough to stop fast fish.
+        return force * 3.0f;
     }
 }
