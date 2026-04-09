@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RevealEffect : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class RevealEffect : MonoBehaviour
     [SerializeField] private Renderer genieRenderer;
     [SerializeField] private Renderer lampRenderer;
     [SerializeField] private float revealDuration = 3f;
+
+    [Header("Event")]
+    public UnityEvent onRevealFinished;
 
     private Material _genieMaterial;
     private Material _lampMaterial;
@@ -25,16 +29,6 @@ public class RevealEffect : MonoBehaviour
 
         if (_lampMaterial != null)
             _lampMaterial.SetFloat("_Cutoff", 0f);
-
-    }
-
-    private void StartReveal()
-    {
-        if (smokeParticles != null)
-            smokeParticles.Play();
-
-        _isRevealing = true;
-        _elapsedTime = 0f;
     }
 
     private void Update()
@@ -62,6 +56,8 @@ public class RevealEffect : MonoBehaviour
 
             if (smokeParticles != null)
                 smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+
+            onRevealFinished?.Invoke();
         }
     }
 

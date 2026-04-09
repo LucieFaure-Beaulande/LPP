@@ -12,42 +12,68 @@ public class FirstPersonController : MonoBehaviour
 
     private CharacterController _controller;
     private float _verticalRotation = 0f;
+    private bool _canLook = true;
+    private bool _canMove = true;
 
     private void Start()
     {
         _controller = GetComponent<CharacterController>();
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        LockMouse();
     }
 
     private void Update()
     {
-        HandleMovement();
-        HandleLook();
+        if (_canMove)
+            HandleMovement();
+
+        if (_canLook)
+            HandleLook();
     }
 
-    // Moves the player horizontally only using WASD/ZQSD
+    public void EnablePlayerControl()
+    {
+        _canMove = true;
+        _canLook = true;
+        LockMouse();
+    }
+
+    public void DisablePlayerControl()
+    {
+        _canMove = false;
+        _canLook = false;
+        UnlockMouse();
+    }
+
+    private void LockMouse()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    private void UnlockMouse()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     private void HandleMovement()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         Vector3 direction = transform.right * horizontal + transform.forward * vertical;
-        direction.y = 0f; // prevent any vertical drift
+        direction.y = 0f;
 
         _controller.Move(direction * moveSpeed * Time.deltaTime);
     }
 
-    // Rotates camera vertically and player body horizontally using mouse
     private void HandleLook()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        // Horizontal: rotate the whole player body
         transform.Rotate(Vector3.up * mouseX);
 
-        // Vertical: rotate only the camera, clamped to avoid flipping
         _verticalRotation -= mouseY;
         _verticalRotation = Mathf.Clamp(_verticalRotation, -90f, 90f);
         cameraTransform.localRotation = Quaternion.Euler(_verticalRotation, 0f, 0f);
