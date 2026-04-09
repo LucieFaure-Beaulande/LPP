@@ -14,8 +14,12 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+    public void PlayPlanet3()
+    {
+        SceneManager.LoadScene(3);
+    }
     public void PlayPlanet4()
     {
-               SceneManager.LoadScene(3);
+               SceneManager.LoadScene(4);
     }
 }

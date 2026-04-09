@@ -6,6 +6,8 @@ public class RevealUIManager : MonoBehaviour
     [SerializeField] private GameObject firstButton;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject planet2Button;
+    [SerializeField] private GameObject planet3Button;
+    [SerializeField] private GameObject planet1Button;
 
     [SerializeField] private FirstPersonController firstPersonController;
 
@@ -14,6 +16,8 @@ public class RevealUIManager : MonoBehaviour
         firstButton.SetActive(false);
         mainMenuButton.SetActive(false);
         planet2Button.SetActive(false);
+        planet3Button.SetActive(false);
+        planet1Button.SetActive(false);
     }
 
     public void ShowFirstButton()
@@ -33,5 +37,7 @@ public class RevealUIManager : MonoBehaviour
 
         mainMenuButton.SetActive(true);
         planet2Button.SetActive(true);
+        planet3Button.SetActive(true);
+        planet1Button.SetActive(true);
     }
 }
