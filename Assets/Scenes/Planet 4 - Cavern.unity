@@ -221,7 +221,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 380076156}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: PlayPlanet1
+        m_MethodName: LoadPlanet1Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7606,7 +7606,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 380076156}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: PlayPlanet3
+        m_MethodName: LoadPlanet3Menu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
