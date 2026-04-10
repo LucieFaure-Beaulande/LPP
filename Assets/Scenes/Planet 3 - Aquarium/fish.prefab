@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4591952703162653837}
   - component: {fileID: 5939798946417495156}
+  - component: {fileID: 3761283062851403340}
   m_Layer: 0
   m_Name: fish
   m_TagString: Untagged
@@ -46,10 +47,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boid
   velocity: {x: 0, y: 0, z: 0}
+  animator: {fileID: 0}
   minSpeed: 2
   maxSpeed: 5
   visualRange: 5
   separationDistance: 1.5
+  rotationSpeed: 5
+--- !u!95 &3761283062851403340
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7500579957637877685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 6c19019fb39775540b1b8ed0182a29c4, type: 3}
+  m_Controller: {fileID: 9100000, guid: 7ac4286b4dd1b6745aec083e29f9681a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &213892344451574677
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -114,7 +139,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: little_nemo
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: 6c19019fb39775540b1b8ed0182a29c4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
