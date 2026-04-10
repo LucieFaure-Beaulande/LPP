@@ -13,7 +13,7 @@ public class MuseumExitTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Simulate a click on the button
-            loader.LoadPlanet2Menu();
+            loader.PlayPlanet2();
             Debug.Log("Player entered portal trigger. Button invoked!");
         }
     }
