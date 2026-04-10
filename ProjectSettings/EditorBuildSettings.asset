@@ -5,9 +5,36 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 8f4842a7f6c09a6498924aa38233b237
+  - enabled: 1
+    path: Assets/Scenes/Planet 1 - Menu.unity
+    guid: a0f68afbfdd963646a98d7d2399258a3
+  - enabled: 1
+    path: Assets/Scenes/Museum.unity
+    guid: 40a3bc59891b38f47891b644019a8486
+  - enabled: 1
+    path: Assets/Scenes/Planet 2 - Menu.unity
+    guid: 2ce59f13910ec2b46af10a4207f0c592
+  - enabled: 1
+    path: Assets/Scenes/Planet 2 - AOS&P.unity
+    guid: 6888813f2bd9e4521b9b1343abf0c60f
+  - enabled: 1
+    path: Assets/Scenes/Planet 3 - Menu.unity
+    guid: 2fa9b8710b54c9140956e42b72d5194c
+  - enabled: 1
+    path: Assets/Scenes/Planet 3 - The Aquarium.unity
+    guid: 2ca87662036569b45af0ce8c09117e9c
+  - enabled: 1
+    path: Assets/Scenes/Planet 4 - Menu.unity
+    guid: 3e3f3cb787673864baea5ae41683ae98
+  - enabled: 1
+    path: Assets/Scenes/Planet 4 - Cavern.unity
+    guid: 8bc9677d2ff3361459a9a9ee55307bf6
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

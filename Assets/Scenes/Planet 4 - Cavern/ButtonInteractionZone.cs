@@ -7,8 +7,7 @@ public class ButtonInteractionZone : MonoBehaviour
 
     private void Start()
     {
-        if (buttonObject != null)
-            buttonObject.SetActive(false);
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -16,8 +15,7 @@ public class ButtonInteractionZone : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         if (buttonObject != null)
             buttonObject.SetActive(true);
-        if (firstPersonController != null)
-            firstPersonController.EnableMovementOnly();
+        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
