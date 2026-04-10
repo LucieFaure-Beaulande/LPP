@@ -1246,7 +1246,7 @@ PrefabInstance:
     - target: {fileID: -8601581723913690838, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 595363829295284587, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -1254,7 +1254,7 @@ PrefabInstance:
     - target: {fileID: 917346512468147161, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: b82373455e2376948880050c3fd40997, type: 2}
+      objectReference: {fileID: 2100000, guid: dadbdb8238cdcb94b8393541822a1ce6, type: 2}
     - target: {fileID: 919132149155446097, guid: bb2b627b53c1eeb4b860558f6f7306de, type: 3}
       propertyPath: m_Name
       value: Jackson Storm
@@ -6620,54 +6620,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessLayer
-  volumeTrigger: {fileID: 464370336}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 1
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!114 &464370341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6680,11 +6632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessVolume
-  sharedProfile: {fileID: 11400000, guid: 2dfc97bf5c5d6e64e95e99893a9c8deb, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 0
 --- !u!1 &477138177
 GameObject:
   m_ObjectHideFlags: 0
@@ -7380,11 +7327,11 @@ PrefabInstance:
     - target: {fileID: -6652725513331149018, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 57895f3b1a2c41a47855b943858758b7, type: 2}
+      objectReference: {fileID: 2100000, guid: 403765d6f3c2b69458ee09b4023cc85d, type: 2}
     - target: {fileID: -803405088876591012, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 919132149155446097, guid: d6d8f407e7ae06948b00ea86c09d3e8a, type: 3}
       propertyPath: m_Name
       value: Rookie Lightning McQueen
@@ -8368,10 +8315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fcea8a4058c4d1aa6ca8fea4168f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84, type: 3}
-  rotationSpeed: 100
-  bobbingAmount: 0.1
-  bobbingSpeed: 1
 --- !u!65 &878588944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10308,10 +10251,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fcea8a4058c4d1aa6ca8fea4168f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84, type: 3}
-  rotationSpeed: 100
-  bobbingAmount: 0.1
-  bobbingSpeed: 1
 --- !u!65 &1313971863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10906,7 +10845,7 @@ PrefabInstance:
     - target: {fileID: -6558475112869005483, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5fb82bfb57d6add4d9ba1a4ab83f6f8a, type: 2}
+      objectReference: {fileID: 2100000, guid: a42f4feffd7a60346b9de5adbfeaf11e, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: m_Name
       value: Danny swervez
@@ -10914,7 +10853,7 @@ PrefabInstance:
     - target: {fileID: 5671048900007043535, guid: 8d0b2200365c9cc45b566901234bdc21, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 3bc9f48c2baecee4d88b6cf2f1c3538b, type: 2}
+      objectReference: {fileID: 2100000, guid: 08807284d147c524e8aa07e75ce1f088, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -22536,10 +22475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fcea8a4058c4d1aa6ca8fea4168f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84, type: 3}
-  rotationSpeed: 100
-  bobbingAmount: 0.1
-  bobbingSpeed: 1
 --- !u!4 &6090826242379808707
 Transform:
   m_ObjectHideFlags: 0
