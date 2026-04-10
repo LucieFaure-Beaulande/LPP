@@ -7,6 +7,6 @@ public class DoorInteraction : MonoBehaviour
     void OnMouseDown()
     {
         Debug.Log("Porte cliquée");
-        scriptDeChargement.LoadScene("Planet 2 - AOS&P");
+        scriptDeChargement.LoadScene("Planet 2 - Menu");
     }
 }
