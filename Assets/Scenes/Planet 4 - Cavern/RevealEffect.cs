@@ -10,7 +10,6 @@ public class RevealEffect : MonoBehaviour
     [SerializeField] private FirstPersonController firstPersonController;
 
     [Header("Lights")]
-    [SerializeField] private Light directionalLight3;
     [SerializeField] private Light genieSpotLight;
 
     [SerializeField] private Color finalSpotColor = new Color32(0x6C, 0xA2, 0xFF, 0xFF);
@@ -39,8 +38,6 @@ public class RevealEffect : MonoBehaviour
         if (_lampMaterial != null)
             _lampMaterial.SetFloat("_Cutoff", 0f);
 
-        if (directionalLight3 != null)
-            directionalLight3.enabled = false;
     }
 
     private void Update()
@@ -68,9 +65,6 @@ public class RevealEffect : MonoBehaviour
 
             if (smokeParticles != null)
                 smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-
-            if (directionalLight3 != null)
-                directionalLight3.enabled = true;
 
             StartCoroutine(EnhanceSpotLight());
 
