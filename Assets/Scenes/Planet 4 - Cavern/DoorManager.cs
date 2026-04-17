@@ -25,7 +25,7 @@ public class DoorManager : MonoBehaviour
             door_hole.gameObject.SetActive(false);
     }
 
-    public void OpenDoorSequence()
+    public void OpenDoorSequence(string btnName)
     {
         if (door != null)
             door.gameObject.SetActive(true);
@@ -34,6 +34,8 @@ public class DoorManager : MonoBehaviour
         if (_hasOpened) return;
         _hasOpened = true;
         StartCoroutine(DoorSequence());
+
+        DoorPassageTrigger.setBtnName(btnName);
     }
 
     private IEnumerator DoorSequence()
