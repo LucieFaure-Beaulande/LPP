@@ -8,10 +8,15 @@ public class DoorManager : MonoBehaviour
     [SerializeField] private Transform door_hole;
     [SerializeField] private float rotateDuration = 1f;
     [SerializeField] private AnimationCurve easeCurve = AnimationCurve.EaseInOut(0f, 0f, 1f, 1f);
+    [SerializeField] private ParticleSystem smokeParticles;
+
+    [SerializeField] private Color smokeColor = Color.white;
+    [SerializeField] private Gradient smokeGradient;
 
     [Header("Objects to hide")]
     [SerializeField] private GameObject[] buttonsToHide;
     [SerializeField] private GameObject rock;
+    [SerializeField] private GameObject genie;
 
     [SerializeField] private Vector3 hingeLocalOffset = new Vector3(-0.5f, 0f, 0f);
 
@@ -40,13 +45,30 @@ public class DoorManager : MonoBehaviour
 
     private IEnumerator DoorSequence()
     {
+        if (smokeParticles != null)
+        {
+            var main = smokeParticles.main;
+            main.startColor = smokeColor;
+
+            var colorOverLifetime = smokeParticles.colorOverLifetime;
+            colorOverLifetime.enabled = true;
+            colorOverLifetime.color = new ParticleSystem.MinMaxGradient(smokeGradient);
+
+            smokeParticles.Play();
+        }
+
         foreach (GameObject btn in buttonsToHide)
             if (btn != null) btn.SetActive(false);
 
         if (rock != null)
             rock.SetActive(false);
+        if(genie != null)
+            genie.SetActive(false);
 
         yield return StartCoroutine(RotateDoorAroundHinge(90f));
+
+        if (smokeParticles != null)
+            smokeParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
     }
 
     private IEnumerator RotateDoorAroundHinge(float targetAngle)
