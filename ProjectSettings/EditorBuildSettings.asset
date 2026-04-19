@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Planet 1 - Menu.unity
     guid: a0f68afbfdd963646a98d7d2399258a3
   - enabled: 1
-    path: Assets/Scenes/Museum.unity
+    path: Assets/Scenes/Planet 1 - Museum.unity
     guid: 40a3bc59891b38f47891b644019a8486
   - enabled: 1
     path: Assets/Scenes/Planet 2 - Menu.unity
