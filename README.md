@@ -4,6 +4,16 @@ Presentation link: https://drive.google.com/file/d/197LEFqmOmiGaoSfdsQ3fa_qp4aCB
 
 Packages from Unity were used in the project, to install them if they aren't at the start of the project, go to Window/Package Management/Package Manager, and search for the packages needed (names given in each planet section).
 
+## Planet 1
+### Created assets
+- All four blender animations: Tank shooting two shells, triforce forming together, pot playing hopscotch, cogs desynchronizing.
+
+### External assets (without modification)
+ - Door: https://assetstore.unity.com/packages/3d/props/exterior/wooden-double-door-front-handle-entrance-297797
+ - Furniture: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
+ - Wood textures for floor and ceiling: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
+ 
+
 ## Planet 4
 ### Created assets
 3D models:
