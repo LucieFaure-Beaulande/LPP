@@ -2311,6 +2311,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5678461111409883879, guid: 8553128c78ddf504697402ef578281b4, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 2e961f1f757cedc4ea3c9a97ddab043d, type: 2}
     - target: {fileID: 8102293556079029855, guid: 8553128c78ddf504697402ef578281b4, type: 3}
       propertyPath: m_Name
       value: Door_1_medium_frameless
@@ -16696,6 +16700,7 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
+  revealDuration: 2
   buttonsToHide:
   - {fileID: 1114243481}
   - {fileID: 1471272324}
