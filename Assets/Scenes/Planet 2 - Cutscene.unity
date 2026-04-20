@@ -842,7 +842,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1799793997}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadPlanet2Menu
+        m_MethodName: PlayPlanet2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

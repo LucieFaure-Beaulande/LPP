@@ -14,6 +14,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     }
+    public void LoadPlanet2Cutscene()
+    {
+        SceneManager.LoadScene(9);
+    }
     public void LoadPlanet2Menu()
     {
         SceneManager.LoadScene(3);

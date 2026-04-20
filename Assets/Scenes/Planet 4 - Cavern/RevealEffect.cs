@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public class RevealEffect : MonoBehaviour
 {
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip revealSfx;
+
     [SerializeField] private ParticleSystem smokeParticles;
     [SerializeField] private Renderer genieRenderer;
     [SerializeField] private Renderer lampRenderer;
@@ -37,7 +41,6 @@ public class RevealEffect : MonoBehaviour
 
         if (_lampMaterial != null)
             _lampMaterial.SetFloat("_Cutoff", 0f);
-
     }
 
     private void Update()
@@ -78,6 +81,9 @@ public class RevealEffect : MonoBehaviour
 
         _elapsedTime = 0f;
         _isRevealing = true;
+
+        if (sfxSource != null && revealSfx != null)
+            sfxSource.PlayOneShot(revealSfx);
 
         if (smokeParticles != null)
             smokeParticles.Play();
