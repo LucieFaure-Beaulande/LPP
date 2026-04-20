@@ -70,10 +70,10 @@ Sound:
 
 Scripts:
 - `ButtonInteractionZone.cs` - Detects when the player enters or leaves the interaction area around a button. When the player enters, it shows the button object and unlocks the cursor so the UI can be used. When the player exits, it restores player control through the `FirstPersonController.cs`.
-- `DoorManager.cs` - Handles the full door opening sequence, including the reveal effect, smoke particles, hiding scene objects, and rotating the door around its hinge. It also stores which destination was selected so the next trigger knows which scene to load. This script is the main controller for the portal/door animation flow.
+- `DoorManager.cs` - Handles the full door opening sequence, including the reveal effect, smoke particles, smoke sound effect, hiding scene objects, and rotating the door around its hinge. It also stores which destination was selected so the next trigger knows which scene to load. This script is the main controller for the portal/door animation flow.
 - `DoorPassageTrigger.cs` - Detects when the player passes through the opened door and redirects them to the correct planet scene. The destination is determined by a stored button name set earlier by the door system. It acts as the transition trigger between the cavern and the selected planet.
 - `FirstPersonController.cs` - Provides the player’s first-person movement and camera look system using a `CharacterController`. It also manages cursor locking and allows movement/look controls to be enabled, disabled, or partially restricted depending on the gameplay state. This script is the core player control system of the planet.
-- `RevealEffect.cs` - Creates the reveal animation between the genie and the lamp by animating material cutoff values over time. It also controls smoke effects, enhances the spotlight during the reveal, and triggers an event when the sequence is finished. This script is responsible for the main magical visual effect of the scene.
+- `RevealEffect.cs` - Creates the reveal animation between the genie and the lamp by animating material cutoff values over time. It also controls smoke effects, smoke sound effect, enhances the spotlight during the reveal, and triggers an event when the sequence is finished. This script is responsible for the main magical visual effect of the scene.
 - `RevealTrigger.cs` - Starts the reveal sequence when the player enters a specific trigger zone. It temporarily disables player control, smoothly moves the player to a target position, rotates them toward the reveal, and then launches the reveal effect. This helps create a more cinematic presentation.
 - `RevealUIManager.cs` - Manages the visibility of the UI buttons linked to the reveal sequence. It first hides all buttons, then shows the initial action button, and later displays the different destination choices and menu button. It also adjusts player control and cursor visibility to support UI interaction.
 
@@ -88,6 +88,7 @@ Unity packages:
 
 Sound:
 - Yoga music: https://pixabay.com/fr/music/ambiant-yoga-510555/
+- Smoke sound: https://pixabay.com/sound-effects/smoke-454927/
 
 ### External assets (with modifications)
 

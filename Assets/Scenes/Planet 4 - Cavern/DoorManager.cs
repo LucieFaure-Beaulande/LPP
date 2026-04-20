@@ -14,6 +14,8 @@ public class DoorManager : MonoBehaviour
 
     [Header("Reveal Effect")]
     [SerializeField] private float revealDuration = 2f;
+    [SerializeField] private AudioSource sfxSource;
+    [SerializeField] private AudioClip revealSfx;
 
     [Header("Objects to hide")]
     [SerializeField] private GameObject[] buttonsToHide;
@@ -73,6 +75,11 @@ public class DoorManager : MonoBehaviour
 
     private IEnumerator DoorSequence()
     {
+        if (sfxSource != null && revealSfx != null)
+            sfxSource.PlayOneShot(revealSfx);
+
+        smokeParticles.gameObject.SetActive(true);
+
         if (smokeParticles != null)
         {
             var main = smokeParticles.main;
