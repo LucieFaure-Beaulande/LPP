@@ -124,7 +124,7 @@ public class DoorManager : MonoBehaviour
             m.SetFloat("_Cutoff", 0f);
     }
 
-    private IEnumerator RotateDoorAroundHinge(float targetAngle)
+    public IEnumerator RotateDoorAroundHinge(float targetAngle)
     {
         Vector3 hingeWorldPos = door.TransformPoint(hingeLocalOffset);
         float elapsed = 0f;
