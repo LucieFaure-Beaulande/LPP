@@ -38,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Planet 2 - Cutscene.unity
     guid: ca722d66ecfab084f8e8a32f3fa12954
+  - enabled: 1
+    path: Assets/Scenes/Planet 3 - Cutscene Entry.unity
+    guid: c04d1afdff50c4c47815834267c3d2f7
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
