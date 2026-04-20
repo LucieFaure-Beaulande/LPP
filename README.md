@@ -2,7 +2,31 @@
 
 Presentation link: https://drive.google.com/file/d/197LEFqmOmiGaoSfdsQ3fa_qp4aCBUDbG/view?usp=sharing
 
+## How to start
 Packages from Unity were used in the project, to install them if they aren't at the start of the project, go to Window/Package Management/Package Manager, and search for the packages needed (names given in each planet section).
+
+- The project uses the legacy Input System. Please ensure it is enabled in **Edit → Project Settings → Player → Active Input Handling**, and set the option to **Both** so the old system is properly supported.
+
+- The project requires a build configuration that includes all scenes in the correct order.
+The build profile is **not active by default** when the project is opened, so it must be set manually.
+
+  Go to **File** → **Build Profiles**, then under **Build Profiles**, select **Windows** and click **Switch Profile**.
+
+  If the scenes are not already listed, add them in the following order (open each scene and click on Add Open Scenes):
+
+  0. TitleScreen
+  1. Planet 1 - Menu
+  2. Planet 1 - Museum
+  3. Planet 2 - Menu
+  4. Planet 2 - AOS&P
+  5. Planet 3 - Menu
+  6. Planet 3 - The Aquarium
+  7. Planet 4 - Menu
+  8. Planet 4 - Cavern
+  9. Planet 2 - Cutscene
+  10. Planet 3 - Cutscene Entry
+
+- **The first scene is the TitleScreen, please open it before lauching the game!**
 
 ## Planet 1
 ### Created assets
