@@ -36,6 +36,32 @@ new textures and modified imported textures were used for the models to reduce t
   https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD4-Racing-cars/TD4Racingcars.html
   https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD5-Racing-cars/TD5Racingcars.html
   https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD6-Racing-cars/TD6RacingCarsFinal.html
+
+## Planet 3
+### Created assets
+3D models:
+- Clown fish
+- Aquarium
+- Door to change scene
+
+Scripts:
+- `Boid.cs` - Defines an object as a entity to be controlled by a `BoidManager.cs`.
+- `BoidManager.cs` - Controls the number of entity that is alive, the boundingBox where the entity will have to remain and getting them back if they go out of it, how they behave together and stay in groups.
+- `FishButton.cs` - Detects when the player gets near the button located in front of the security fences and shows a text saying 'Press E to add a fish' and when the player presses the E key and is near it, it will call the `BoidManager.cs` to add a fish to the aquarium with a splash sound.
+- `DoorPassageTrigger.cs` - Detects when the player passes through the opened door and redirects them to the correct planet scene. The destination is determined by a stored button name set earlier by the door system. It acts as the transition trigger between the cavern and the selected planet.
+- `FirstPersonController.cs` - Provides the player’s first-person movement and camera look system using a `CharacterController`. It also manages cursor locking and allows movement/look controls to be enabled, disabled, or partially restricted depending on the gameplay state. This script is the core player control system of the planet.
+
+### External assets (without modification)
+
+Unity packages:
+- Security Fence: https://assetstore.unity.com/packages/3d/props/industrial/modular-fences-pack-34359#description
+- 4 other fish models: https://assetstore.unity.com/packages/3d/characters/animals/fish/fish-polypack-202232
+- Wall and ceiling (texture only): https://assetstore.unity.com/packages/2d/textures-materials/yughues-free-architectural-materials-13234#description
+- Floor (texture only): https://assetstore.unity.com/packages/2d/textures-materials/wood/hand-painted-seamless-wood-texture-vol-6-162145#content
+
+Sound:
+- Splash Sound: https://pixabay.com/sound-effects/search/splash/
+- Ambient music (Dive): https://archive.org/details/pkmn-rse-soundtrack
  
 ## Planet 4
 ### Created assets
