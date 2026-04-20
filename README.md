@@ -8,6 +8,14 @@ Packages from Unity were used in the project, to install them if they aren't at 
 ### Created assets
 - All four blender animations: Tank shooting two shells, triforce forming together, pot playing hopscotch, cogs desynchronizing.
 
+### Scripts
+- `CustomTiling.cs` - Ajuste le "tiling" au démarrage du jeu. Il utilise un MaterialPropertyBlock, une méthode optimisée permettant de modifier l'apparence de cet objet spécifique sans affecter les autres éléments de la scène qui partagent le même matériau. N'est qu'une tentative pour des textures de murs, qui ont été scrap.
+
+- `DoorInteraction.cs` - Gère l'interaction avec la souris. Lorsqu'un clic est détecté sur la porte, ce script communique directement avec le gestionnaire de scènes pour lancer le niveau d'après.
+
+- `ZoneAnimation.cs` - Démarre une animation ciblée lorsqu'un personnage entre dans le Trigger. Le script vérifie d'abord que l'entité entrant dans cette zone possède bien l'étiquette "Player" avant de lancer le signal de départ au composant Animator.
+
+
 ### External assets (without modification)
  - Door: https://assetstore.unity.com/packages/3d/props/exterior/wooden-double-door-front-handle-entrance-297797
  - Furniture: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
