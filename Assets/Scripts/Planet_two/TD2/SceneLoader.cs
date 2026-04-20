@@ -26,6 +26,10 @@ public class SceneLoader : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+    public void LoadPlanet3Cutscene()
+    {
+        SceneManager.LoadScene(10);
+    }
     public void LoadPlanet3Menu()
     {
         SceneManager.LoadScene(5);
@@ -40,6 +44,6 @@ public class SceneLoader : MonoBehaviour
     }
     public void PlayPlanet4()
     {
-               SceneManager.LoadScene(8);
+        SceneManager.LoadScene(8);
     }
 }
