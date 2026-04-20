@@ -12,8 +12,31 @@ Packages from Unity were used in the project, to install them if they aren't at 
  - Door: https://assetstore.unity.com/packages/3d/props/exterior/wooden-double-door-front-handle-entrance-297797
  - Furniture: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
  - Wood textures for floor and ceiling: https://assetstore.unity.com/packages/3d/props/furniture/furniture-free-pack-192628
- 
 
+## Planet 2
+### Created assets
+- Spectator cars
+- Spectator stands
+
+### External assets (without modification)
+- TD4/5/6 assets for the racetrack and the race logic (turn count, checkpoints, ...)
+- Unity assets for the racing lights
+
+### External assets (with modifications)
+ - Player car: https://sketchfab.com/3d-models/rookie-lightning-mcqueen-91f7594ccbb44da6ac596abe2af1fc6d
+ - AI cars: https://sketchfab.com/3d-models/jackson-storm-3561b33ed9ff4a869668c1bcd13e5ee4
+   https://sketchfab.com/3d-models/danny-swervez-82c64ab36d544a76a8586b109bc7787d
+new textures and modified imported textures were used for the models to reduce the ressemblance to the original source.
+
+### Tutorials
+
+- importing 3D models to Unity: https://youtu.be/kHJo3bPiIpc?si=hsZmgIuwOL1L1RUJ
+
+- IHM and Virtual Worlds creation's online assignments:
+  https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD4-Racing-cars/TD4Racingcars.html
+  https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD5-Racing-cars/TD5Racingcars.html
+  https://www-sop.inria.fr/members/Hui-Yin.Wu/course/CMV/TD6-Racing-cars/TD6RacingCarsFinal.html
+ 
 ## Planet 4
 ### Created assets
 3D models:
