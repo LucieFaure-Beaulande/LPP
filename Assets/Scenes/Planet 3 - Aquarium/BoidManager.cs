@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class BoidManager : MonoBehaviour
 {
     [Header("Settings")]
-    public GameObject boidPrefab;
+    public List<GameObject> boidPrefabs;
     public int spawnCount = 30;
     public Vector3 aquariumSize = new Vector3(20, 10, 20);
 
@@ -17,20 +17,23 @@ public class BoidManager : MonoBehaviour
     private List<Boid> allBoids = new List<Boid>();
     private Boundary aquarium;
 
+    [Header("Audio")]
+    public AudioClip splashSound;
+    private AudioSource audioSource;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // Setup boundary once for spawn
         UpdateBoundary();
 
         for (int i = 0; i < spawnCount; i++)
         {
-            Vector3 randomPos = new Vector3(
-                Random.Range(aquarium.min.x, aquarium.max.x),
-                Random.Range(aquarium.min.y, aquarium.max.y),
-                Random.Range(aquarium.min.z, aquarium.max.z)
-            );
+            Vector3 randomPos = transform.position + (Random.insideUnitSphere * 1f);
 
-            GameObject go = Instantiate(boidPrefab, randomPos, Quaternion.identity);
+            int toChose = Random.Range(0, boidPrefabs.Count);
+
+            GameObject go = Instantiate(boidPrefabs[toChose], randomPos, Quaternion.identity);
             Boid boid = go.GetComponent<Boid>();
             boid.velocity = Random.insideUnitSphere * maxSpeed;
             allBoids.Add(boid);
@@ -63,6 +66,31 @@ public class BoidManager : MonoBehaviour
     {
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireCube(transform.position, aquariumSize);
+    }
+
+    public void addFish()
+    {
+        // Use the transform position as the spawn point
+        Vector3 spawnPoint = transform.position + (Random.insideUnitSphere * 1f);
+
+        int toChose = Random.Range(0, boidPrefabs.Count);
+        GameObject go = Instantiate(boidPrefabs[toChose], spawnPoint, Quaternion.identity);
+
+        Boid boid = go.GetComponent<Boid>();
+
+        // It is still a good idea to keep the random initial velocity 
+        // so they swim away from the center in different directions
+        if (boid != null)
+        {
+            boid.velocity = Random.insideUnitSphere * maxSpeed;
+            allBoids.Add(boid);
+        }
+
+        if (audioSource != null && splashSound != null)
+        {
+            audioSource.pitch = Random.Range(0.9f, 1.1f);
+            audioSource.PlayOneShot(splashSound);
+        }
     }
 }
 
